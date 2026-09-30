@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donde octubre comienza con tu nombre 🐾</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 8%, rgba(255,210,130,.13), transparent 25%),
+        linear-gradient(180deg,#15111b 0%,#201722 48%,#120e15 100%);
+    color:#fff8ef;
+    font-family:'Nunito',sans-serif;
+    overflow-x:hidden;
+}
+
+/* Luna */
+.moon{
+    position:fixed;
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    background:#fff4d8;
+    top:28px;
+    right:22px;
+    box-shadow:0 0 45px rgba(255,226,158,.18);
+    opacity:.9;
+}
+
+.moon:after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#17121b;
+    top:-12px;
+    left:-25px;
+}
+
+/* Huellitas flotantes */
+.paw{
+    position:fixed;
+    color:rgba(240,190,128,.18);
+    font-size:24px;
+    pointer-events:none;
+    animation:float 7s ease-in-out infinite;
+}
+
+.p1{left:9%;top:23%;animation-delay:0s;}
+.p2{right:10%;top:38%;animation-delay:2s;}
+.p3{left:14%;top:69%;animation-delay:4s;}
+.p4{right:13%;top:78%;animation-delay:1s;}
+
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(-8deg);}
+    50%{transform:translateY(-13px) rotate(8deg);}
+}
+
+/* Contenedor */
+.page{
+    width:min(92%,680px);
+    margin:auto;
+    padding:72px 0 55px;
+    position:relative;
+    z-index:2;
+}
+
+/* Gatito superior */
+.cat{
+    width:76px;
+    height:62px;
+    margin:0 auto 25px;
+    position:relative;
+}
+
+.cat-face{
+    width:58px;
+    height:53px;
+    border-radius:50% 50% 47% 47%;
+    background:#e7b980;
+    position:absolute;
+    left:9px;
+    bottom:0;
+    box-shadow:0 8px 22px rgba(0,0,0,.25);
+}
+
+.ear{
+    position:absolute;
+    width:27px;
+    height:27px;
+    background:#e7b980;
+    top:0;
+    transform:rotate(45deg);
+    border-radius:5px 8px 5px 8px;
+}
+
+.ear.left{left:7px;}
+.ear.right{right:7px;}
+
+.eye{
+    position:absolute;
+    width:5px;
+    height:7px;
+    background:#38252a;
+    border-radius:50%;
+    top:22px;
+}
+
+.eye.left{left:18px;}
+.eye.right{right:18px;}
+
+.nose{
+    position:absolute;
+    width:6px;
+    height:5px;
+    background:#9b5d68;
+    border-radius:50%;
+    left:26px;
+    top:31px;
+}
+
+.whisker{
+    position:absolute;
+    width:19px;
+    height:1px;
+    background:#fff0df;
+    opacity:.7;
+    top:33px;
+}
+
+.w1{left:0;transform:rotate(8deg);}
+.w2{right:0;transform:rotate(-8deg);}
+
+/* Encabezado */
+.header{
+    text-align:center;
+    margin-bottom:38px;
+}
+
+.date{
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:#e8bb83;
+    margin-bottom:13px;
+}
+
+h1{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(2rem,8vw,3.5rem);
+    line-height:1.08;
+    font-weight:400;
+    color:#fff4df;
+}
+
+.subtitle{
+    margin-top:14px;
+    color:#cbb9ae;
+    font-size:.88rem;
+    letter-spacing:.5px;
+}
+
+/* Poema */
+.poem-card{
+    background:rgba(255,248,238,.055);
+    border:1px solid rgba(235,191,133,.19);
+    border-radius:30px;
+    padding:34px 24px 32px;
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.035);
+    backdrop-filter:blur(10px);
+}
+
+.poem{
+    font-family:'DM Serif Display',serif;
+    font-size:1.08rem;
+    line-height:1.9;
+    text-align:center;
+    color:#fff7ed;
+}
+
+.poem .nickname{
+    display:block;
+    color:#e7b879;
+    font-size:1.35rem;
+    margin-bottom:24px;
+}
+
+.stanza{
+    margin-bottom:25px;
+}
+
+.highlight{
+    color:#f0c991;
+}
+
+.signature{
+    margin-top:32px;
+    padding-top:24px;
+    border-top:1px solid rgba(235,191,133,.18);
+}
+
+.name{
+    display:block;
+    font-family:'Nunito',sans-serif;
+    font-size:.82rem;
+    letter-spacing:3px;
+    font-weight:700;
+    color:#e6bb82;
+}
+
+.final{
+    display:block;
+    margin-top:13px;
+    color:#d9c8bd;
+    font-size:.94rem;
+    line-height:1.6;
+}
+
+/* Decoración inferior */
+.cat-line{
+    text-align:center;
+    margin-top:27px;
+    color:#c99962;
+    font-size:1.15rem;
+    letter-spacing:8px;
+    opacity:.8;
+}
+
+/* Entrada */
+.page{
+    animation:appear 1.2s ease both;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:480px){
+    .page{
+        padding-top:60px;
+    }
+
+    .moon{
+        width:82px;
+        height:82px;
+        top:22px;
+        right:13px;
+    }
+
+    .moon:after{
+        width:78px;
+        height:78px;
+    }
+
+    .poem-card{
+        padding:29px 19px;
+        border-radius:25px;
+    }
+
+    .poem{
+        font-size:1rem;
+        line-height:1.82;
+    }
+
+    .poem .nickname{
+        font-size:1.23rem;
+    }
+
+    .subtitle{
+        font-size:.82rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="moon"></div>
+
+<div class="paw p1">🐾</div>
+<div class="paw p2">🐾</div>
+<div class="paw p3">🐾</div>
+<div class="paw p4">🐾</div>
+
+<main class="page">
+
+    <div class="cat">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+
+        <div class="cat-face">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="nose"></div>
+            <div class="whisker w1"></div>
+            <div class="whisker w2"></div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="date">Jueves · 01 · Octubre · 2026</div>
+
+        <h1>✦ DONDE OCTUBRE<br>
+        COMIENZA CON TU NOMBRE ✦</h1>
+
+        <div class="subtitle">
+            Una pequeña mañana guardada para ti 🐾
+        </div>
+    </header>
+
+    <section class="poem-card">
+
+        <div class="poem">
+
+            <span class="nickname">
+                Mi Estrellita de Azúcar,
+            </span>
+
+            <div class="stanza">
+                Desde temprano dejé estas palabras esperándote,<br>
+                como quien deja un beso guardado<br>
+                para el momento exacto en que la persona que ama<br>
+                decida encontrarlo.
+            </div>
+
+            <div class="stanza">
+                Y si lees esto al despertar, al mediodía<br>
+                o cuando el día ya esté cayendo,<br>
+                quiero que sientas lo mismo:<br>
+                que desde que comenzó octubre,<br>
+                <span class="highlight">mi primer pensamiento bonito fuiste tú.</span>
+            </div>
+
+            <div class="stanza">
+                Porque no necesito una fecha especial<br>
+                para volver a enamorarme de ti;<br>
+                me basta recordar tu sonrisa,<br>
+                tu mirada, tu forma de hacerme sentir amado,<br>
+                y este corazón mío vuelve a escogerte<br>
+                con una intensidad que no sé esconder.
+            </div>
+
+            <div class="stanza">
+                Quiero que octubre me encuentre<br>
+                amándote más fuerte que ayer,<br>
+                besándote incluso en mis pensamientos<br>
+                y soñando con todos los momentos<br>
+                que todavía nos faltan por vivir.
+            </div>
+
+            <div class="stanza">
+                Tú eres mi comienzo favorito,<br>
+                mi deseo más bonito<br>
+                y el amor que quiero seguir eligiendo<br>
+                cada mañana que venga.
+            </div>
+
+            <div class="signature">
+                <span class="name">VALERIA PETRO VILLAZÓN</span>
+
+                <span class="final">
+                    Mi octubre empieza donde comienza tu sonrisa.
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="cat-line">🐾 · ♡ · 🐾</div>
+
+</main>
+
+</body>
+              </html>
